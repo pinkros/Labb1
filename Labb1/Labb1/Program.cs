@@ -78,6 +78,7 @@ for (int i = 0; i < input.Length; i++)
 			Console.Write(input.Substring(indexOfLastNumOfSubStr + 1) + "\n");
 
 			indexOfFirstNumOfSubStr = 0;
+			indexOfLastNumOfSubStr = 0;
 
         }
 	}
