@@ -20,15 +20,6 @@ Exempel output för input ”29535123p48723487597645723645”:
 Total = 5836428677242*/
 
 
-//Fråga användaren om en sträng och spara den.
-//Hitta delsträngar som börjar och slutar på samma tal och är minst 3 tecken långa.
-//      Spara platsen i strängen där delsträngen börjar och slutar.
-//      Spara ner värdet av varje delsträng och lägg till i en variabel
-//För varje hittad delsträng:
-//      Skriv ut hela strängen med delsträngen markerad i annan färg.
-//skriv ut summan av värdet av alla hittade delsträngar.
-
-//Fråga användaren om en sträng och spara den.
 Console.WriteLine("Hej! skriv in en sträng:");
 string input = Console.ReadLine();
 var sum = 0L;
@@ -41,19 +32,24 @@ var lengthOfSubstring = 0;
 //Hitta delsträngar som börjar och slutar på samma tal och är minst 3 tecken långa.
 for (int i = 0; i < input.Length; i++)
 {
+	//Endast siffror avses, om annat tecken hittas, fortsätt till nästa.
 	if (int.TryParse(input[i]+"", out int currentNum))
 	{
-		
-		if (indexOfFirstNumOfSubStr == 0) { indexOfFirstNumOfSubStr = i; }
+        //      Spara platsen i strängen där delsträngen börjar.
+
+        if (indexOfFirstNumOfSubStr == 0) { indexOfFirstNumOfSubStr = i; }
 
 		for (int j = i+1; j < input.Length; j++)
 		{
+			//		Om man hittar annat tecken än siffra innan dublett, kolla nästa istället.
 			if (int.TryParse(input[j]+"", out int dummynum) == false)
 			{
 				lengthOfSubstring = 0;
 				indexOfFirstNumOfSubStr = 0;
 				break; 
 			}
+
+            //      Spara platsen i strängen där delsträngen slutar.
             else if ( int.Parse(input[j]+"") == currentNum)
             {
 				indexOfLastNumOfSubStr = j;
@@ -61,13 +57,25 @@ for (int i = 0; i < input.Length; i++)
 				break;
             }
 
+			//om ingen match hittades, kolla nästa.
+			else if (j == input.Length - 1)
+			{
+                lengthOfSubstring = 0;
+                indexOfFirstNumOfSubStr = 0;
+                break;
+            }
+
 
         }
 
-		if (lengthOfSubstring >= 3 )
+        //För varje hittad delsträng:
+        if (lengthOfSubstring >= 3 )
 		{
-			sum += long.Parse(input.Substring(indexOfFirstNumOfSubStr, lengthOfSubstring));
-			Console.Write(input.Substring(0, indexOfFirstNumOfSubStr));
+            //      Spara ner värdet av varje delsträng och lägg till i en variabel
+            sum += long.Parse(input.Substring(indexOfFirstNumOfSubStr, lengthOfSubstring));
+
+            //      Skriv ut hela strängen med delsträngen markerad i annan färg.
+            Console.Write(input.Substring(0, indexOfFirstNumOfSubStr));
 
 			Console.ForegroundColor = ConsoleColor.Red;
 
@@ -83,5 +91,6 @@ for (int i = 0; i < input.Length; i++)
         }
 	}
 }
+//skriv ut summan av värdet av alla hittade delsträngar.
 
 Console.WriteLine($"Det totala värdet av alla delsträngar är: {sum}");
