@@ -19,13 +19,15 @@ sist i programmet. Gör gärna en tom rad emellan för att skilja från output o
 Exempel output för input ”29535123p48723487597645723645”:
 Total = 5836428677242*/
 
-//Be användaren skriva in en sträng:
-Console.WriteLine("Hej! skriv in en sträng:");
-string input = Console.ReadLine();
 var sum = 0L;
 var indexOfFirstNumOfSubStr = 0;
 var indexOfLastNumOfSubStr = 0;
 var lengthOfSubstring = 0;
+
+//Be användaren skriva in en sträng:
+Console.WriteLine("Hej! skriv in en sträng:");
+string input = Console.ReadLine();
+
 
 
 
