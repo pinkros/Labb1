@@ -25,7 +25,7 @@ var indexOfLastNumOfSubStr = 0;
 var lengthOfSubstring = 0;
 
 //Be användaren skriva in en sträng:
-Console.WriteLine("Hej! skriv in en sträng:");
+Console.WriteLine("Hej! Skriv in en sträng:");
 string input = Console.ReadLine();
 
 
@@ -44,7 +44,7 @@ for (int i = 0; i < input.Length; i++)
 		for (int j = i+1; j < input.Length; j++)
 		{
 			//		Om man hittar annat tecken än siffra innan dublett, kolla nästa istället.
-			if (int.TryParse(input[j]+"", out int dummynum) == false)
+			if (int.TryParse(input[j]+"", out int notUsed) == false)
 			{
 				lengthOfSubstring = 0;
 				indexOfFirstNumOfSubStr = 0;
