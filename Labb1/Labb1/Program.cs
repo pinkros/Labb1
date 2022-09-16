@@ -62,6 +62,10 @@ for (int i = 0; i < input.Length; i++)
 			//om ingen match hittades, kolla nästa.
 			else if (j == input.Length - 1)
 			{
+				//Jag vet att detta kodblock är identiskt med den första if-satsen,
+				//men jag anser att det är alldeles för liten och simpel mängd kod för att bryta ut.
+				//Dessutom måste dessa checkas göras i denna ordning,
+				//vilket gör att jag inte kan göra ett OR-villkor i första if-satsen istället.
                 lengthOfSubstring = 0;
                 indexOfFirstNumOfSubStr = 0;
                 break;
